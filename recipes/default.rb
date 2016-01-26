@@ -3,12 +3,22 @@ package 'ufw' do
   action :upgrade
 end
 
+# Reset all rules
+bash "reset ufw rules" do
+  user 'root'
+  code <<-EOC
+  ufw --force reset
+  ufw default deny
+  EOC
+
+  notifies :run, 'execute[restart_ufw]', :delayed
+end
+
+
 # Enable SSH by default
 bash "open ufw for ssh traffic" do
   user "root"
   code <<-EOC
-  ufw reset
-  ufw default deny
   ufw allow 22
   EOC
 
