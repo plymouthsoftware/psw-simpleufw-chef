@@ -1,0 +1,7 @@
+name             'psw-simpleufw'
+maintainer       'Plymouth Software Limited'
+maintainer_email 'hello@plymouthsoftware.com'
+license          'MIT'
+description      'Installs and configure ubuntu ufw through node attributes'
+long_description 'Installs and configure ubuntu ufw through node attributes'
+version          '0.1.0'
